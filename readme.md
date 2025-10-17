@@ -5,4 +5,4 @@
 
 ## My DockerHub Image
 
-![Docker Image](/ "My QR Code Link")
+![Docker Image](/qr_codes/QRCode_20251017142830.png "My QR Code Link")
