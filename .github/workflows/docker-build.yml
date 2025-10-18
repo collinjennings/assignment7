@@ -22,6 +22,17 @@ jobs:
       packages: write
 
     steps:
+    
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+ 
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -58,3 +69,8 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+      - name: Run a Docker container
+        run: docker run --name qr-generator -d -p 8080:80 my-image:latest
+      - name: Stop and remove the container
+        run: docker stop my-app-container && docker rm my-app-container
+    
