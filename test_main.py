@@ -3,8 +3,11 @@ import sys
 from pathlib import Path
 from unittest.mock import patch, MagicMock, mock_open
 import logging
-from PIL import Image
 import io
+from unittest.mock import MagicMock
+import sys
+sys.modules['PIL'] = MagicMock()
+sys.modules['PIL.Image'] = MagicMock()
 
 # Import functions from main.py
 from main import (
