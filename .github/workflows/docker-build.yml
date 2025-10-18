@@ -71,5 +71,5 @@ jobs:
           cache-to: type=gha,mode=max    
       - name: Run tests with pytest and enforce 70% coverage
         run: |
-          pytest --cov=app --cov-fail-under=70
+          pytest --cov=main --cov-fail-under=70
     
