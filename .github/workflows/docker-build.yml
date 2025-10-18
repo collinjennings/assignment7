@@ -73,4 +73,7 @@ jobs:
         run: docker run --name qr-generator -d -p 8080:80 my-image:latest
       - name: Stop and remove the container
         run: docker stop my-app-container && docker rm my-app-container
+      - name: Run tests with pytest and enforce 70% coverage
+        run: |
+          pytest --cov=app --cov-fail-under=70
     
